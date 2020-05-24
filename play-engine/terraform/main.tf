@@ -99,6 +99,9 @@ resource "google_compute_address" "ingress-address" {
   name         = "${var.cluster_name}-external"
   address_type = "EXTERNAL"
   region       = var.region
+  lifecycle {
+    prevent_destroy = true
+  }
 }
 
 // Create an external NAT IP
