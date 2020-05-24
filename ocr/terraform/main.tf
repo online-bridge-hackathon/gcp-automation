@@ -47,7 +47,7 @@ resource "google_compute_instance" "ocr_vm" {
 }
 
 resource "google_compute_firewall" "ssh-firewall" {
-  prject = var.project
+  project = var.project_id
   name    = "ssh-firewall"
   network = var.network
 
