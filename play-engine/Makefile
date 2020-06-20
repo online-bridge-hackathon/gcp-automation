@@ -31,6 +31,7 @@ endef
 set_gcp_project:
 	set -e
 
+	mkdir -p ${PWD}/.tmp
 	gcloud config set project ${GCP_PROJECT}
 
 set_cluster_context:
@@ -59,6 +60,10 @@ prepare_cluster: set_gcp_project set_cluster_context _install_nginx_ingress _ins
 
 _install_nginx_ingress:
 	set -e
+
+	# @Sarguel suggest these two lines are added
+	helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+	helm repo update
 
 	$(eval ingress_ip := ${shell cat ${TERRAFORM_OUTPUT} | jq -r .ingress_ip.value.address})
 	kubectl create ns nginx-ingress || :
