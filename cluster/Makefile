@@ -1,8 +1,8 @@
-GCP_PROJECT ?= online-bridge-hackathon-2020
-GKE_CLUSTER_NAME ?= hackathon-cluster
-GKE_NODE_COUNT ?= 4
-GCP_REGION ?= europe-west3
-GCP_ZONE ?= europe-west3-b
+GCP_PROJECT ?= globalbridge-app
+GKE_CLUSTER_NAME ?= prod-cluster
+GKE_NODE_COUNT ?= 3
+GCP_REGION ?= europe-west4
+GCP_ZONE ?= europe-west4-b
 GCP_NETWORK ?= default
 GCP_SUBNETWORK ?= default
 MASTER_IPV4_CIDR_BLOCK ?= 172.16.0.16/28
