@@ -64,7 +64,8 @@ resource "google_container_node_pool" "pools" {
   node_config {
     disk_size_gb    = 25
     disk_type       = "pd-standard"
-    labels          = {}
+    preemptible	    = true
+    labels          = { instance = "${var.cluster_name}-node-pool"} 
     machine_type    = var.machine_type
     tags            = ["bridge-hackathon"]
     metadata = {
